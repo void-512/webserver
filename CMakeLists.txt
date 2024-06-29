@@ -8,6 +8,6 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Ofast")
 
 project(WebServer)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} SRC_LIST)
 
-add_executable(WebServer ${SRC_LIST})
+add_executable(WebServer main.c webserver.c)
+add_executable(client client.c)

@@ -1,6 +1,6 @@
 #include "webserver.h"
 
-int main() {
+int main(int argc, char **argv) {
     int serverSocket = createServer(DEFAULT_PORT);
  
     while (1) {

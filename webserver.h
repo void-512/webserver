@@ -1,11 +1,12 @@
 #ifndef __WEBSERVER_H__
 #define  __WEBSERVER_H__
 
-#define DEFAULT_PORT 1704
+#define DEFAULT_PORT 17104
 
 #include <sys/socket.h>
 #include <unistd.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

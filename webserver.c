@@ -19,6 +19,8 @@ int createServer(int port) {
 }
 
 int createConn(int serverSocket) {
+    char clientIP[BUFSIZ];
+    int clientPort;
     struct sockaddr_in clientAddress;
     socklen_t clientAddressSize = sizeof(clientAddress);
 
@@ -26,7 +28,11 @@ int createConn(int serverSocket) {
     if (clientSocket == -1) {
         sys_err("Failed to create clientSocket");
     }
-    puts("New client connection accepted.");
+
+    inet_ntop(AF_INET, &clientAddress.sin_addr.s_addr, clientIP, sizeof(clientIP));
+    clientPort = ntohs(clientAddress.sin_port);
+
+    printf("New client connection accepted from: %s: %d\n", clientIP, clientPort);
 
     return clientSocket;
 }
