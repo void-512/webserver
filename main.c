@@ -1,9 +1,12 @@
 #include "webserver.h"
 
 int main() {
-    int serverSocket = createServer(1234);
+    int serverSocket = createServer(DEFAULT_PORT);
  
-    acceptConn(serverSocket);
+    while (1) {
+        int clientSocket = createConn(serverSocket);
+        rewriteUpper(clientSocket);
+    }
 
     close(serverSocket);
  
